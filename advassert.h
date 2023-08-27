@@ -1,6 +1,18 @@
 #ifndef ADVASSERT_H
 #define ADVASEERT_H
 
+//! @brief Contains all supported variable types. It is located in header
+//! so that anyone can check which types are supported.
+enum class AdvAssertType
+{
+    INT         = 0,
+    CHAR        = 1,
+    DOUBLE      = 2,
+    FLOAT       = 3,
+    LONG_INT    = 4,
+    POINTER     = 5,
+};
+
 #ifdef NDEBUG
 
 // if not debugging, ADV_ASSERT must be turned off
