@@ -71,6 +71,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -86,20 +87,24 @@ $(function() {
 </div>
 <p><a href="advassert_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_adv_assert_type.html">AdvAssertType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6e2de44e7ae440cbef1899c8b52df26a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">AdvAssertType</a> { <br />
-&#160;&#160;<a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a">INT</a> =0
-, <a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8">CHAR</a> =1
-, <a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92">DOUBLE</a> =2
-, <a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a> =3
+<tr class="memitem:a1d1cfd8ffb84e947f82999c682b666a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> { <br />
+&#160;&#160;<a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a">INT</a> =0
+, <a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8">CHAR</a> =1
+, <a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92">DOUBLE</a> =2
+, <a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a> =3
 , <br />
-&#160;&#160;<a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87">LONG_INT</a> =4
-, <a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512">POINTER</a> =5
+&#160;&#160;<a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87">LONG_INT</a> =4
+, <a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512">POINTER</a> =5
 <br />
  }</td></tr>
-<tr class="memdesc:a6e2de44e7ae440cbef1899c8b52df26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]!  <a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">More...</a><br /></td></tr>
-<tr class="separator:a6e2de44e7ae440cbef1899c8b52df26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a1d1cfd8ffb84e947f82999c682b666a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -111,6 +116,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a409fc86d8cc52d1c09a0491ca7cc59d9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a409fc86d8cc52d1c09a0491ca7cc59d9">AdvAssertPointer</a> = &quot;void *&quot;</td></tr>
+<tr class="memdesc:a409fc86d8cc52d1c09a0491ca7cc59d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents any pointer, which can be used in printf with spec "%p".  <br /></td></tr>
+<tr class="separator:a409fc86d8cc52d1c09a0491ca7cc59d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf7ce4c5eec057340c8c52bffaa833f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_adv_assert_type.html">AdvAssertType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a> []</td></tr>
+<tr class="memdesc:a8bf7ce4c5eec057340c8c52bffaa833f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all supported types.  <br /></td></tr>
+<tr class="separator:a8bf7ce4c5eec057340c8c52bffaa833f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af12b2e9dfe263fd7557b96d7873ea870"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a> = 101</td></tr>
 <tr class="memdesc:af12b2e9dfe263fd7557b96d7873ea870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum variable's name's length (including '\0').  <br /></td></tr>
 <tr class="separator:af12b2e9dfe263fd7557b96d7873ea870"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,45 +131,46 @@ Variables</h2></td></tr>
 <tr class="memitem:ac2ceb6ff7ba707c432e19b2698ce4d45"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#ac2ceb6ff7ba707c432e19b2698ce4d45">MAX_FORMAT_LEN</a> = <a class="el" href="advassert_8cpp.html#aab66dd88b7476f29d0b123917a2f99b8">MAX_TYPE_NAME_LEN</a> + 10</td></tr>
 <tr class="memdesc:ac2ceb6ff7ba707c432e19b2698ce4d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum format's length (including '\0').  <br /></td></tr>
 <tr class="separator:ac2ceb6ff7ba707c432e19b2698ce4d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae674e284062221038daa4fa473d395b8"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#ae674e284062221038daa4fa473d395b8">adv_assert_types</a> [] = {&quot;int&quot;, &quot;char&quot;, &quot;double&quot;, &quot;float&quot;, &quot;long int&quot;, &quot;void *&quot; }</td></tr>
-<tr class="separator:ae674e284062221038daa4fa473d395b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa88ddbd1f2efc83232c9f5013f30b67a"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#aa88ddbd1f2efc83232c9f5013f30b67a">adv_assert_specf</a> [] = {&quot;%d&quot; , &quot;%c&quot; , &quot;%f&quot; , &quot;%f&quot; , &quot;%ld&quot; , &quot;%p&quot; }</td></tr>
-<tr class="separator:aa88ddbd1f2efc83232c9f5013f30b67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a952e27e18463eb75b2aa9758a2642d76"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a952e27e18463eb75b2aa9758a2642d76">N_SUPPORTED_TYPES</a> = sizeof(<a class="el" href="advassert_8cpp.html#ae674e284062221038daa4fa473d395b8">adv_assert_types</a>)/sizeof(<a class="el" href="advassert_8cpp.html#ae674e284062221038daa4fa473d395b8">adv_assert_types</a>[0])</td></tr>
+<tr class="memitem:a952e27e18463eb75b2aa9758a2642d76"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="advassert_8cpp.html#a952e27e18463eb75b2aa9758a2642d76">N_SUPPORTED_TYPES</a> = sizeof(<a class="el" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a>)/sizeof(<a class="el" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a>[0])</td></tr>
 <tr class="memdesc:a952e27e18463eb75b2aa9758a2642d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of supported types, aka len(adv_assert_types)  <br /></td></tr>
 <tr class="separator:a952e27e18463eb75b2aa9758a2642d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a6e2de44e7ae440cbef1899c8b52df26a" name="a6e2de44e7ae440cbef1899c8b52df26a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e2de44e7ae440cbef1899c8b52df26a">&#9670;&#160;</a></span>AdvAssertType</h2>
+<a id="a1d1cfd8ffb84e947f82999c682b666a7" name="a1d1cfd8ffb84e947f82999c682b666a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d1cfd8ffb84e947f82999c682b666a7">&#9670;&#160;</a></span>Type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">AdvAssertType</a></td>
+          <td class="memname">enum <a class="el" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]! </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a" name="a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a"></a>INT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8" name="a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8"></a>CHAR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92" name="a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92"></a>DOUBLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c" name="a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c"></a>FLOAT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87" name="a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87"></a>LONG_INT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512" name="a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512"></a>POINTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a" name="a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a"></a>INT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8" name="a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8"></a>CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92" name="a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92"></a>DOUBLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c" name="a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c"></a>FLOAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87" name="a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87"></a>LONG_INT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512" name="a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512"></a>POINTER&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00019">19</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>{<a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a">INT</a>=0, <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8">CHAR</a>=1, <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92">DOUBLE</a>=2, <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a>=3, <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87">LONG_INT</a>=4, <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512">POINTER</a>=5};</div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92">DOUBLE</a></div><div class="ttdeci">@ DOUBLE</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8">CHAR</a></div><div class="ttdeci">@ CHAR</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87">LONG_INT</a></div><div class="ttdeci">@ LONG_INT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a></div><div class="ttdeci">@ FLOAT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512">POINTER</a></div><div class="ttdeci">@ POINTER</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a">INT</a></div><div class="ttdeci">@ INT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00027">27</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>          {</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a">INT</a>=0,</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8">CHAR</a>=1,</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92">DOUBLE</a>=2,</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a>=3,</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87">LONG_INT</a>=4,</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512">POINTER</a>=5,</div>
+<div class="line"><span class="lineno">   34</span>};</div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92">DOUBLE</a></div><div class="ttdeci">@ DOUBLE</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00030">advassert.cpp:30</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8">CHAR</a></div><div class="ttdeci">@ CHAR</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00029">advassert.cpp:29</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87">LONG_INT</a></div><div class="ttdeci">@ LONG_INT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00032">advassert.cpp:32</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a></div><div class="ttdeci">@ FLOAT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00031">advassert.cpp:31</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512">POINTER</a></div><div class="ttdeci">@ POINTER</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00033">advassert.cpp:33</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a">INT</a></div><div class="ttdeci">@ INT</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00028">advassert.cpp:28</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,82 +244,83 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00063">63</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
-<div class="line"><span class="lineno">   71</span>    fprintf(stderr, <span class="stringliteral">&quot;Advanced assertion failed!\nFailed condition: %s\n&quot;</span></div>
-<div class="line"><span class="lineno">   72</span>                    <span class="stringliteral">&quot;Explanation: %s\nFile: %s\nLine: %d\n&quot;</span>, condition, explanation, file, line);</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">if</span> (nVars == 0)</div>
-<div class="line"><span class="lineno">   75</span>    {</div>
-<div class="line"><span class="lineno">   76</span>        printf(<span class="stringliteral">&quot;No variables to print passed.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>        abort();</div>
-<div class="line"><span class="lineno">   79</span>    }</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>    <span class="comment">// nVars != 0</span></div>
-<div class="line"><span class="lineno">   82</span>    printf(<span class="stringliteral">&quot;Passed variables:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    va_list vars;</div>
-<div class="line"><span class="lineno">   85</span>    va_start(vars, nVars);</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>    char (*parsed_vars)[<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>] = (char (*)[<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>]) calloc(nVars, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span> [<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>]));</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *parsed_types = (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*) calloc(nVars, <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">AdvAssertType</a>));</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordtype">int</span> is_parse_fine = parse_vars(  vars_as_string,</div>
-<div class="line"><span class="lineno">   91</span>                                    nVars,</div>
-<div class="line"><span class="lineno">   92</span>                                    parsed_vars,</div>
-<div class="line"><span class="lineno">   93</span>                                    parsed_types);</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">if</span> (is_parse_fine)</div>
-<div class="line"><span class="lineno">   96</span>    {</div>
-<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; nVars; ++i)</div>
-<div class="line"><span class="lineno">   98</span>        {</div>
-<div class="line"><span class="lineno">   99</span>            <span class="keywordtype">char</span> format[<a class="code hl_variable" href="advassert_8cpp.html#ac2ceb6ff7ba707c432e19b2698ce4d45">MAX_FORMAT_LEN</a>] = <span class="stringliteral">&quot;%s = &quot;</span>;</div>
-<div class="line"><span class="lineno">  100</span>            strcat(format, <a class="code hl_variable" href="advassert_8cpp.html#aa88ddbd1f2efc83232c9f5013f30b67a">adv_assert_specf</a>[ parsed_types[i] ]);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">switch</span>( (<a class="code hl_enumeration" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">AdvAssertType</a>) parsed_types[i] )</div>
-<div class="line"><span class="lineno">  103</span>            {</div>
-<div class="line"><span class="lineno">  104</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a">AdvAssertType::INT</a>:</div>
-<div class="line"><span class="lineno">  105</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">int</span>) );</div>
-<div class="line"><span class="lineno">  106</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  107</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8">AdvAssertType::CHAR</a>:</div>
-<div class="line"><span class="lineno">  108</span>                    fprintf(stderr, format, parsed_vars[i], (<span class="keywordtype">char</span>) va_arg(vars, <span class="keywordtype">int</span>)); <span class="comment">// &#39;char&#39; is promoted to &#39;int&#39; when passed through &#39;...&#39;</span></div>
-<div class="line"><span class="lineno">  109</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  110</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92">AdvAssertType::DOUBLE</a>:</div>
-<div class="line"><span class="lineno">  111</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c">AdvAssertType::FLOAT</a>:      <span class="comment">// &#39;float&#39; is promoted to &#39;double&#39; when passed through &#39;...&#39;</span></div>
-<div class="line"><span class="lineno">  112</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">double</span>));</div>
-<div class="line"><span class="lineno">  113</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  114</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87">AdvAssertType::LONG_INT</a>:</div>
-<div class="line"><span class="lineno">  115</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">long</span> <span class="keywordtype">int</span>));</div>
-<div class="line"><span class="lineno">  116</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  117</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512">AdvAssertType::POINTER</a>:</div>
-<div class="line"><span class="lineno">  118</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">void</span>*));</div>
-<div class="line"><span class="lineno">  119</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  120</span>                <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  121</span>                    printf(<span class="stringliteral">&quot;ADV_ASSERT: %s has unknown type. &quot;</span></div>
-<div class="line"><span class="lineno">  122</span>                    <span class="stringliteral">&quot;Can&#39;t read arguments...\n&quot;</span>,  parsed_vars[i]);</div>
-<div class="line"><span class="lineno">  123</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  124</span>            }</div>
-<div class="line"><span class="lineno">  125</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  126</span>        }</div>
-<div class="line"><span class="lineno">  127</span>    }</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  129</span>    {</div>
-<div class="line"><span class="lineno">  130</span>        printf(<span class="stringliteral">&quot;Some error occurred during parsing variables of the assert. &quot;</span></div>
-<div class="line"><span class="lineno">  131</span>        <span class="stringliteral">&quot;Here are the passed variables: %s\n&quot;</span>, vars_as_string);</div>
-<div class="line"><span class="lineno">  132</span>    }</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>    free(parsed_vars);</div>
-<div class="line"><span class="lineno">  135</span>    free(parsed_types);</div>
-<div class="line"><span class="lineno">  136</span> </div>
-<div class="line"><span class="lineno">  137</span>    va_end(vars);</div>
-<div class="line"><span class="lineno">  138</span>}</div>
-<div class="ttc" id="aadvassert_8cpp_html_a6e2de44e7ae440cbef1899c8b52df26a"><div class="ttname"><a href="advassert_8cpp.html#a6e2de44e7ae440cbef1899c8b52df26a">AdvAssertType</a></div><div class="ttdeci">AdvAssertType</div><div class="ttdoc">Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]!</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_aa88ddbd1f2efc83232c9f5013f30b67a"><div class="ttname"><a href="advassert_8cpp.html#aa88ddbd1f2efc83232c9f5013f30b67a">adv_assert_specf</a></div><div class="ttdeci">const char * adv_assert_specf[]</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00021">advassert.cpp:21</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_ac2ceb6ff7ba707c432e19b2698ce4d45"><div class="ttname"><a href="advassert_8cpp.html#ac2ceb6ff7ba707c432e19b2698ce4d45">MAX_FORMAT_LEN</a></div><div class="ttdeci">const unsigned int MAX_FORMAT_LEN</div><div class="ttdoc">Maximum format's length (including '\0').</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00016">advassert.cpp:16</a></div></div>
-<div class="ttc" id="aadvassert_8cpp_html_af12b2e9dfe263fd7557b96d7873ea870"><div class="ttname"><a href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a></div><div class="ttdeci">const unsigned int MAX_VAR_NAME_LEN</div><div class="ttdoc">Maximum variable's name's length (including '\0').</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00010">advassert.cpp:10</a></div></div>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00085">85</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>{</div>
+<div class="line"><span class="lineno">   93</span>    fprintf(stderr, <span class="stringliteral">&quot;Advanced assertion failed!\nFailed condition: %s\n&quot;</span></div>
+<div class="line"><span class="lineno">   94</span>                    <span class="stringliteral">&quot;Explanation: %s\nFile: %s\nLine: %d\n&quot;</span>, condition, explanation, file, line);</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">if</span> (nVars == 0)</div>
+<div class="line"><span class="lineno">   97</span>    {</div>
+<div class="line"><span class="lineno">   98</span>        printf(<span class="stringliteral">&quot;No variables to print passed.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>        abort();</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="comment">// nVars != 0</span></div>
+<div class="line"><span class="lineno">  104</span>    printf(<span class="stringliteral">&quot;Passed variables:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>    va_list vars;</div>
+<div class="line"><span class="lineno">  107</span>    va_start(vars, nVars);</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>    char (*parsed_vars)[<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>] = (char (*)[<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>]) calloc(nVars, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span> [<a class="code hl_variable" href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a>]));</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *parsed_types = (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*) calloc(nVars, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_adv_assert_type.html">AdvAssertType</a>));</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">int</span> is_parse_fine = parse_vars(  vars_as_string,</div>
+<div class="line"><span class="lineno">  113</span>                                    nVars,</div>
+<div class="line"><span class="lineno">  114</span>                                    parsed_vars,</div>
+<div class="line"><span class="lineno">  115</span>                                    parsed_types);</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (is_parse_fine)</div>
+<div class="line"><span class="lineno">  118</span>    {</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; nVars; ++i)</div>
+<div class="line"><span class="lineno">  120</span>        {</div>
+<div class="line"><span class="lineno">  121</span>            <span class="keywordtype">char</span> format[<a class="code hl_variable" href="advassert_8cpp.html#ac2ceb6ff7ba707c432e19b2698ce4d45">MAX_FORMAT_LEN</a>] = <span class="stringliteral">&quot;%s = &quot;</span>;</div>
+<div class="line"><span class="lineno">  122</span>            strcat(format, <a class="code hl_variable" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a>[ parsed_types[i] ].specf);</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">switch</span>( (<a class="code hl_enumeration" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>) parsed_types[i] )</div>
+<div class="line"><span class="lineno">  125</span>            {</div>
+<div class="line"><span class="lineno">  126</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a">Type::INT</a>:</div>
+<div class="line"><span class="lineno">  127</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">int</span>) );</div>
+<div class="line"><span class="lineno">  128</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  129</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8">Type::CHAR</a>:</div>
+<div class="line"><span class="lineno">  130</span>                    fprintf(stderr, format, parsed_vars[i], (<span class="keywordtype">char</span>) va_arg(vars, <span class="keywordtype">int</span>)); <span class="comment">// &#39;char&#39; is promoted to &#39;int&#39; when passed through &#39;...&#39;</span></div>
+<div class="line"><span class="lineno">  131</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  132</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92">Type::DOUBLE</a>:</div>
+<div class="line"><span class="lineno">  133</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c">Type::FLOAT</a>:      <span class="comment">// &#39;float&#39; is promoted to &#39;double&#39; when passed through &#39;...&#39;</span></div>
+<div class="line"><span class="lineno">  134</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">double</span>));</div>
+<div class="line"><span class="lineno">  135</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  136</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87">Type::LONG_INT</a>:</div>
+<div class="line"><span class="lineno">  137</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">long</span> <span class="keywordtype">int</span>));</div>
+<div class="line"><span class="lineno">  138</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  139</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512">Type::POINTER</a>:</div>
+<div class="line"><span class="lineno">  140</span>                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, <span class="keywordtype">void</span>*));</div>
+<div class="line"><span class="lineno">  141</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  142</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  143</span>                    printf(<span class="stringliteral">&quot;ADV_ASSERT: %s has unknown type. &quot;</span></div>
+<div class="line"><span class="lineno">  144</span>                    <span class="stringliteral">&quot;Can&#39;t read arguments...\n&quot;</span>,  parsed_vars[i]);</div>
+<div class="line"><span class="lineno">  145</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  146</span>            }</div>
+<div class="line"><span class="lineno">  147</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>        }</div>
+<div class="line"><span class="lineno">  149</span>    }</div>
+<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  151</span>    {</div>
+<div class="line"><span class="lineno">  152</span>        printf(<span class="stringliteral">&quot;Some error occurred during parsing variables of the assert. &quot;</span></div>
+<div class="line"><span class="lineno">  153</span>        <span class="stringliteral">&quot;Here are the passed variables: %s\n&quot;</span>, vars_as_string);</div>
+<div class="line"><span class="lineno">  154</span>    }</div>
+<div class="line"><span class="lineno">  155</span> </div>
+<div class="line"><span class="lineno">  156</span>    free(parsed_vars);</div>
+<div class="line"><span class="lineno">  157</span>    free(parsed_types);</div>
+<div class="line"><span class="lineno">  158</span> </div>
+<div class="line"><span class="lineno">  159</span>    va_end(vars);</div>
+<div class="line"><span class="lineno">  160</span>}</div>
+<div class="ttc" id="aadvassert_8cpp_html_a1d1cfd8ffb84e947f82999c682b666a7"><div class="ttname"><a href="advassert_8cpp.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00027">advassert.cpp:27</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_a8bf7ce4c5eec057340c8c52bffaa833f"><div class="ttname"><a href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a></div><div class="ttdeci">const AdvAssertType adv_assert_types[]</div><div class="ttdoc">Contains all supported types.</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00019">advassert.cpp:19</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_ac2ceb6ff7ba707c432e19b2698ce4d45"><div class="ttname"><a href="advassert_8cpp.html#ac2ceb6ff7ba707c432e19b2698ce4d45">MAX_FORMAT_LEN</a></div><div class="ttdeci">const unsigned int MAX_FORMAT_LEN</div><div class="ttdoc">Maximum format's length (including '\0').</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00043">advassert.cpp:43</a></div></div>
+<div class="ttc" id="aadvassert_8cpp_html_af12b2e9dfe263fd7557b96d7873ea870"><div class="ttname"><a href="advassert_8cpp.html#af12b2e9dfe263fd7557b96d7873ea870">MAX_VAR_NAME_LEN</a></div><div class="ttdeci">const unsigned int MAX_VAR_NAME_LEN</div><div class="ttdoc">Maximum variable's name's length (including '\0').</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00037">advassert.cpp:37</a></div></div>
+<div class="ttc" id="astruct_adv_assert_type_html"><div class="ttname"><a href="struct_adv_assert_type.html">AdvAssertType</a></div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00009">advassert.cpp:10</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="advassert_8cpp_source.html#l00021">adv_assert_specf</a>, <a class="el" href="advassert_8cpp_source.html#l00019">CHAR</a>, <a class="el" href="advassert_8cpp_source.html#l00019">DOUBLE</a>, <a class="el" href="advassert_8cpp_source.html#l00019">FLOAT</a>, <a class="el" href="advassert_8cpp_source.html#l00019">INT</a>, <a class="el" href="advassert_8cpp_source.html#l00019">LONG_INT</a>, <a class="el" href="advassert_8cpp_source.html#l00016">MAX_FORMAT_LEN</a>, <a class="el" href="advassert_8cpp_source.html#l00010">MAX_VAR_NAME_LEN</a>, and <a class="el" href="advassert_8cpp_source.html#l00019">POINTER</a>.</p>
+<p class="reference">References <a class="el" href="advassert_8cpp_source.html#l00019">adv_assert_types</a>, <a class="el" href="advassert_8cpp_source.html#l00029">CHAR</a>, <a class="el" href="advassert_8cpp_source.html#l00030">DOUBLE</a>, <a class="el" href="advassert_8cpp_source.html#l00031">FLOAT</a>, <a class="el" href="advassert_8cpp_source.html#l00028">INT</a>, <a class="el" href="advassert_8cpp_source.html#l00032">LONG_INT</a>, <a class="el" href="advassert_8cpp_source.html#l00043">MAX_FORMAT_LEN</a>, <a class="el" href="advassert_8cpp_source.html#l00037">MAX_VAR_NAME_LEN</a>, and <a class="el" href="advassert_8cpp_source.html#l00033">POINTER</a>.</p>
 
 </div>
 </div>
@@ -326,53 +339,66 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00042">42</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordtype">char</span> x1 = <span class="charliteral">&#39;F&#39;</span>;</div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordtype">double</span> eji = 23.42;</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_define" href="advassert_8h.html#ad43146e7b63c30aad9f8a26e62b2abb6">ADV_ASSERT</a>(x1 &lt; 0, <span class="stringliteral">&quot;Explanation&quot;</span>, 3, (<span class="keywordtype">char</span>) x1, ( <span class="keywordtype">double</span>)   eji, ( <span class="keywordtype">double</span> *) &amp;eji );</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   50</span>}</div>
-<div class="ttc" id="aadvassert_8h_html_ad43146e7b63c30aad9f8a26e62b2abb6"><div class="ttname"><a href="advassert_8h.html#ad43146e7b63c30aad9f8a26e62b2abb6">ADV_ASSERT</a></div><div class="ttdeci">#define ADV_ASSERT(cond, expl, nVars,...)</div><div class="ttdoc">Advanced version of standard assert, capable of printing variables' values and names.</div><div class="ttdef"><b>Definition</b> <a href="advassert_8h_source.html#l00033">advassert.h:33</a></div></div>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00064">64</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordtype">char</span> x1 = <span class="charliteral">&#39;F&#39;</span>;</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordtype">double</span> eji = 23.42;</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_define" href="advassert_8h.html#ad43146e7b63c30aad9f8a26e62b2abb6">ADV_ASSERT</a>(x1 &lt; 0, <span class="stringliteral">&quot;Explanation&quot;</span>, 3, (<span class="keywordtype">char</span>) x1, ( <span class="keywordtype">double</span>)   eji, ( <span class="keywordtype">double</span> *) &amp;eji );</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   72</span>}</div>
+<div class="ttc" id="aadvassert_8h_html_ad43146e7b63c30aad9f8a26e62b2abb6"><div class="ttname"><a href="advassert_8h.html#ad43146e7b63c30aad9f8a26e62b2abb6">ADV_ASSERT</a></div><div class="ttdeci">#define ADV_ASSERT(cond, expl, nVars,...)</div><div class="ttdoc">Advanced version of standard assert, capable of printing variables' values and names.</div><div class="ttdef"><b>Definition</b> <a href="advassert_8h_source.html#l00036">advassert.h:36</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="advassert_8h_source.html#l00033">ADV_ASSERT</a>.</p>
+<p class="reference">References <a class="el" href="advassert_8h_source.html#l00036">ADV_ASSERT</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="aa88ddbd1f2efc83232c9f5013f30b67a" name="aa88ddbd1f2efc83232c9f5013f30b67a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa88ddbd1f2efc83232c9f5013f30b67a">&#9670;&#160;</a></span>adv_assert_specf</h2>
+<a id="a8bf7ce4c5eec057340c8c52bffaa833f" name="a8bf7ce4c5eec057340c8c52bffaa833f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf7ce4c5eec057340c8c52bffaa833f">&#9670;&#160;</a></span>adv_assert_types</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* adv_assert_specf[] = {&quot;%d&quot; , &quot;%c&quot; , &quot;%f&quot; , &quot;%f&quot; , &quot;%ld&quot; , &quot;%p&quot; }</td>
+          <td class="memname">const <a class="el" href="struct_adv_assert_type.html">AdvAssertType</a> adv_assert_types[]</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">                                            {<span class="stringliteral">&quot;int&quot;</span>,             <span class="stringliteral">&quot;%d&quot;</span> },</div>
+<div class="line">                                            {<span class="stringliteral">&quot;char&quot;</span>,            <span class="stringliteral">&quot;%c&quot;</span> },</div>
+<div class="line">                                            {<span class="stringliteral">&quot;double&quot;</span>,          <span class="stringliteral">&quot;%f&quot;</span> },</div>
+<div class="line">                                            {<span class="stringliteral">&quot;float&quot;</span>,           <span class="stringliteral">&quot;%f&quot;</span> },</div>
+<div class="line">                                            {<span class="stringliteral">&quot;long int&quot;</span>,        <span class="stringliteral">&quot;%ld&quot;</span>},</div>
+<div class="line">                                            {<a class="code hl_variable" href="advassert_8cpp.html#a409fc86d8cc52d1c09a0491ca7cc59d9">AdvAssertPointer</a>,  <span class="stringliteral">&quot;%p&quot;</span> }</div>
+<div class="line">                                         }</div>
+<div class="ttc" id="aadvassert_8cpp_html_a409fc86d8cc52d1c09a0491ca7cc59d9"><div class="ttname"><a href="advassert_8cpp.html#a409fc86d8cc52d1c09a0491ca7cc59d9">AdvAssertPointer</a></div><div class="ttdeci">const char * AdvAssertPointer</div><div class="ttdoc">Represents any pointer, which can be used in printf with spec &quot;%p&quot;.</div><div class="ttdef"><b>Definition</b> <a href="advassert_8cpp_source.html#l00016">advassert.cpp:16</a></div></div>
+</div><!-- fragment -->
+<p>Contains all supported types. </p>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00021">21</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00019">19</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00063">advassert_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00085">advassert_()</a>.</p>
 
 </div>
 </div>
-<a id="ae674e284062221038daa4fa473d395b8" name="ae674e284062221038daa4fa473d395b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae674e284062221038daa4fa473d395b8">&#9670;&#160;</a></span>adv_assert_types</h2>
+<a id="a409fc86d8cc52d1c09a0491ca7cc59d9" name="a409fc86d8cc52d1c09a0491ca7cc59d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409fc86d8cc52d1c09a0491ca7cc59d9">&#9670;&#160;</a></span>AdvAssertPointer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* adv_assert_types[] = {&quot;int&quot;, &quot;char&quot;, &quot;double&quot;, &quot;float&quot;, &quot;long int&quot;, &quot;void *&quot; }</td>
+          <td class="memname">const char* AdvAssertPointer = &quot;void *&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00020">20</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p>Represents any pointer, which can be used in printf with spec "%p". </p>
+
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00016">16</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
 </div>
 </div>
@@ -390,9 +416,9 @@ Variables</h2></td></tr>
 
 <p>Maximum format's length (including '\0'). </p>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00016">16</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00043">43</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00063">advassert_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00085">advassert_()</a>.</p>
 
 </div>
 </div>
@@ -410,7 +436,7 @@ Variables</h2></td></tr>
 
 <p>Maximum type's name's length (including '\0'). </p>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00013">13</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00040">40</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,9 +454,9 @@ Variables</h2></td></tr>
 
 <p>Maximum variable's name's length (including '\0'). </p>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00010">10</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00037">37</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00063">advassert_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="advassert_8cpp_source.html#l00085">advassert_()</a>.</p>
 
 </div>
 </div>
@@ -441,14 +467,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int N_SUPPORTED_TYPES = sizeof(<a class="el" href="advassert_8cpp.html#ae674e284062221038daa4fa473d395b8">adv_assert_types</a>)/sizeof(<a class="el" href="advassert_8cpp.html#ae674e284062221038daa4fa473d395b8">adv_assert_types</a>[0])</td>
+          <td class="memname">const unsigned int N_SUPPORTED_TYPES = sizeof(<a class="el" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a>)/sizeof(<a class="el" href="advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f">adv_assert_types</a>[0])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Number of supported types, aka len(adv_assert_types) </p>
 
-<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00024">24</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="advassert_8cpp_source.html#l00046">46</a> of file <a class="el" href="advassert_8cpp_source.html">advassert.cpp</a>.</p>
 
 </div>
 </div>

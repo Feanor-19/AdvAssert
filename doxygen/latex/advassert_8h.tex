@@ -56,7 +56,7 @@ USAGE EXAMPLE 3\+: ADV\+\_\+\+ASSERT(0, \"{}\+Unreachable line\"{}, 0, \"{}\"{})
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{advassert_8h_source_l00033}{33}} of file \mbox{\hyperlink{advassert_8h_source}{advassert.\+h}}.
+Definition at line \mbox{\hyperlink{advassert_8h_source_l00036}{36}} of file \mbox{\hyperlink{advassert_8h_source}{advassert.\+h}}.
 
 \Hypertarget{advassert_8h_a981d972b3880cf0b5da9cc13ecb7c259}\label{advassert_8h_a981d972b3880cf0b5da9cc13ecb7c259} 
 \index{advassert.h@{advassert.h}!ADVASEERT\_H@{ADVASEERT\_H}}
@@ -98,82 +98,82 @@ MUSTN\textquotesingle{}T be used on its own, only as a part of the macro \doxyli
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00070\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Advanced\ assertion\ failed!\(\backslash\)nFailed\ condition:\ \%s\(\backslash\)n"{}}}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Explanation:\ \%s\(\backslash\)nFile:\ \%s\(\backslash\)nLine:\ \%d\(\backslash\)n"{}},\ condition,\ explanation,\ file,\ line);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (nVars\ ==\ 0)}
-\DoxyCodeLine{00075\ \ \ \ \ \{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ variables\ to\ print\ passed.\(\backslash\)n"{}});}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ abort();}
-\DoxyCodeLine{00079\ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ nVars\ !=\ 0}}
-\DoxyCodeLine{00082\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Passed\ variables:\(\backslash\)n"{}});}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ va\_list\ vars;}
-\DoxyCodeLine{00085\ \ \ \ \ va\_start(vars,\ nVars);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ char\ (*parsed\_vars)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]\ =\ (char\ (*)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}])\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ [\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]));}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *parsed\_types\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*)\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{AdvAssertType}}));}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ is\_parse\_fine\ =\ parse\_vars(\ \ vars\_as\_string,}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nVars,}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_vars,}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_types);}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_parse\_fine)}
-\DoxyCodeLine{00096\ \ \ \ \ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nVars;\ ++i)}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ format[\mbox{\hyperlink{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45}{MAX\_FORMAT\_LEN}}]\ =\ \textcolor{stringliteral}{"{}\%s\ =\ "{}};}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ strcat(format,\ \mbox{\hyperlink{advassert_8cpp_aa88ddbd1f2efc83232c9f5013f30b67a}{adv\_assert\_specf}}[\ parsed\_types[i]\ ]);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\ (\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{AdvAssertType}})\ parsed\_types[i]\ )}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a}{AdvAssertType::INT}}:}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{int})\ );}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8}{AdvAssertType::CHAR}}:}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ (\textcolor{keywordtype}{char})\ va\_arg(vars,\ \textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ 'char'\ is\ promoted\ to\ 'int'\ when\ passed\ through\ '...'}}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92}{AdvAssertType::DOUBLE}}:}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c}{AdvAssertType::FLOAT}}:\ \ \ \ \ \ \textcolor{comment}{//\ 'float'\ is\ promoted\ to\ 'double'\ when\ passed\ through\ '...'}}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{double}));}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87}{AdvAssertType::LONG\_INT}}:}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}));}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512}{AdvAssertType::POINTER}}:}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{void}*));}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ADV\_ASSERT:\ \%s\ has\ unknown\ type.\ "{}}}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can't\ read\ arguments...\(\backslash\)n"{}},\ \ parsed\_vars[i]);}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00127\ \ \ \ \ \}}
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00129\ \ \ \ \ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Some\ error\ occurred\ during\ parsing\ variables\ of\ the\ assert.\ "{}}}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Here\ are\ the\ passed\ variables:\ \%s\(\backslash\)n"{}},\ vars\_as\_string);}
-\DoxyCodeLine{00132\ \ \ \ \ \}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ free(parsed\_vars);}
-\DoxyCodeLine{00135\ \ \ \ \ free(parsed\_types);}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ va\_end(vars);}
-\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Advanced\ assertion\ failed!\(\backslash\)nFailed\ condition:\ \%s\(\backslash\)n"{}}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Explanation:\ \%s\(\backslash\)nFile:\ \%s\(\backslash\)nLine:\ \%d\(\backslash\)n"{}},\ condition,\ explanation,\ file,\ line);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (nVars\ ==\ 0)}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ variables\ to\ print\ passed.\(\backslash\)n"{}});}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ abort();}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ nVars\ !=\ 0}}
+\DoxyCodeLine{00104\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Passed\ variables:\(\backslash\)n"{}});}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ va\_list\ vars;}
+\DoxyCodeLine{00107\ \ \ \ \ va\_start(vars,\ nVars);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ char\ (*parsed\_vars)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]\ =\ (char\ (*)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}])\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ [\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]));}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *parsed\_types\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*)\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_adv_assert_type}{AdvAssertType}}));}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ is\_parse\_fine\ =\ parse\_vars(\ \ vars\_as\_string,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nVars,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_vars,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_types);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_parse\_fine)}
+\DoxyCodeLine{00118\ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nVars;\ ++i)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ format[\mbox{\hyperlink{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45}{MAX\_FORMAT\_LEN}}]\ =\ \textcolor{stringliteral}{"{}\%s\ =\ "{}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ strcat(format,\ \mbox{\hyperlink{advassert_8cpp_a8bf7ce4c5eec057340c8c52bffaa833f}{adv\_assert\_types}}[\ parsed\_types[i]\ ].specf);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\ (\mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7}{Type}})\ parsed\_types[i]\ )}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7afd5a5f51ce25953f3db2c7e93eb7864a}{Type::INT}}:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{int})\ );}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7a4618cf21306b3c647741afa7ebefcab8}{Type::CHAR}}:}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ (\textcolor{keywordtype}{char})\ va\_arg(vars,\ \textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ 'char'\ is\ promoted\ to\ 'int'\ when\ passed\ through\ '...'}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7a33465d1d419b1074fb259ef444609e92}{Type::DOUBLE}}:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7a9cf4a0866224b0bb4a7a895da27c9c4c}{Type::FLOAT}}:\ \ \ \ \ \ \textcolor{comment}{//\ 'float'\ is\ promoted\ to\ 'double'\ when\ passed\ through\ '...'}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{double}));}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7a95d35d28f182e281c3ebca74641fdc87}{Type::LONG\_INT}}:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a1d1cfd8ffb84e947f82999c682b666a7aad7dce162b42b3d0968ffa57fad43512}{Type::POINTER}}:}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ADV\_ASSERT:\ \%s\ has\ unknown\ type.\ "{}}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can't\ read\ arguments...\(\backslash\)n"{}},\ \ parsed\_vars[i]);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00151\ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Some\ error\ occurred\ during\ parsing\ variables\ of\ the\ assert.\ "{}}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Here\ are\ the\ passed\ variables:\ \%s\(\backslash\)n"{}},\ vars\_as\_string);}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ free(parsed\_vars);}
+\DoxyCodeLine{00157\ \ \ \ \ free(parsed\_types);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ va\_end(vars);}
+\DoxyCodeLine{00160\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{advassert_8cpp_source_l00021}{adv\+\_\+assert\+\_\+specf}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{CHAR}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{DOUBLE}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{FLOAT}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{LONG\+\_\+\+INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00016}{MAX\+\_\+\+FORMAT\+\_\+\+LEN}}, \mbox{\hyperlink{advassert_8cpp_source_l00010}{MAX\+\_\+\+VAR\+\_\+\+NAME\+\_\+\+LEN}}, and \mbox{\hyperlink{advassert_8cpp_source_l00019}{POINTER}}.
+References \mbox{\hyperlink{advassert_8cpp_source_l00019}{adv\+\_\+assert\+\_\+types}}, \mbox{\hyperlink{advassert_8cpp_source_l00029}{CHAR}}, \mbox{\hyperlink{advassert_8cpp_source_l00030}{DOUBLE}}, \mbox{\hyperlink{advassert_8cpp_source_l00031}{FLOAT}}, \mbox{\hyperlink{advassert_8cpp_source_l00028}{INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00032}{LONG\+\_\+\+INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00043}{MAX\+\_\+\+FORMAT\+\_\+\+LEN}}, \mbox{\hyperlink{advassert_8cpp_source_l00037}{MAX\+\_\+\+VAR\+\_\+\+NAME\+\_\+\+LEN}}, and \mbox{\hyperlink{advassert_8cpp_source_l00033}{POINTER}}.
 

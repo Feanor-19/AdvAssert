@@ -4,31 +4,34 @@
 \DoxyCodeLine{\Hypertarget{advassert_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ ADVASSERT\_H}}
 \DoxyCodeLine{\Hypertarget{advassert_8h_source_l00002}\mbox{\hyperlink{advassert_8h_a981d972b3880cf0b5da9cc13ecb7c259}{00002}}\ \textcolor{preprocessor}{\#define\ ADVASEERT\_H}}
 \DoxyCodeLine{\Hypertarget{advassert_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00004}00004\ \textcolor{preprocessor}{\#ifdef\ NDEBUG}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00006}00006\ \textcolor{comment}{//\ if\ not\ debugging,\ ADV\_ASSERT\ must\ be\ turned\ off}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ ADV\_ASSERT(x)\ ((void)0)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00004}00004\ \textcolor{comment}{//const\ char*\ adv\_assert\_types[]\ =\ \{"{}int"{},\ "{}char"{},\ "{}double"{},\ "{}float"{},\ "{}long\ int"{},\ "{}void\ *"{}\ \};}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00005}00005\ \textcolor{comment}{//const\ char*\ adv\_assert\_specf[]\ =\ \{"{}\%d"{}\ ,\ "{}\%c"{}\ \ ,\ "{}\%f"{}\ \ \ \ ,\ "{}\%f"{}\ \ \ ,\ "{}\%ld"{}\ \ \ \ \ ,\ "{}\%p"{}\ \ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifdef\ NDEBUG}}
 \DoxyCodeLine{\Hypertarget{advassert_8h_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00009}00009\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ debug\ on,\ ADV\_ASSERT\ is\ turned\ on\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00011}00011\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{advassert_8h_a7837447211dfe34718ffce5e7d4813df}{advassert\_}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ condition,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ explanation,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ line,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ vars\_as\_string,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nVars,}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...);}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00033}\mbox{\hyperlink{advassert_8h_ad43146e7b63c30aad9f8a26e62b2abb6}{00033}}\ \textcolor{preprocessor}{\#define\ ADV\_ASSERT(cond,\ expl,\ nVars,...)\ (\ (cond)\ ?\ ((void)0)\ :\ advassert\_(\#cond,\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00034}00034\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (expl),\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00035}00035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00036}00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LINE\_\_,\ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00037}00037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\_\_VA\_ARGS\_\_,\ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00038}00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (nVars),\ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00039}00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_\ )\ )}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ NEDBUG\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00042}00042\ }
-\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00043}00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ADVASSERT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00009}00009\ \textcolor{comment}{//\ if\ not\ debugging,\ ADV\_ASSERT\ must\ be\ turned\ off}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ ADV\_ASSERT(x)\ ((void)0)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00012}00012\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ debug\ on,\ ADV\_ASSERT\ is\ turned\ on\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00014}00014\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{advassert_8h_a7837447211dfe34718ffce5e7d4813df}{advassert\_}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ condition,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ explanation,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ vars\_as\_string,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nVars,}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...);}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00036}\mbox{\hyperlink{advassert_8h_ad43146e7b63c30aad9f8a26e62b2abb6}{00036}}\ \textcolor{preprocessor}{\#define\ ADV\_ASSERT(cond,\ expl,\ nVars,...)\ (\ (cond)\ ?\ ((void)0)\ :\ advassert\_(\#cond,\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00037}00037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (expl),\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00038}00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00039}00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LINE\_\_,\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00040}00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\_\_VA\_ARGS\_\_,\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00041}00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (nVars),\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00042}00042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_\ )\ )}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00044}00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ NEDBUG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{advassert_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ADVASSERT\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

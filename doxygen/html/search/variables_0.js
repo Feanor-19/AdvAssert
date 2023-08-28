@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['adv_5fassert_5fspecf_0',['adv_assert_specf',['../advassert_8cpp.html#aa88ddbd1f2efc83232c9f5013f30b67a',1,'advassert.cpp']]],
-  ['adv_5fassert_5ftypes_1',['adv_assert_types',['../advassert_8cpp.html#ae674e284062221038daa4fa473d395b8',1,'advassert.cpp']]]
+  ['adv_5fassert_5ftypes_0',['adv_assert_types',['../advassert_8cpp.html#a8bf7ce4c5eec057340c8c52bffaa833f',1,'advassert.cpp']]],
+  ['advassertpointer_1',['AdvAssertPointer',['../advassert_8cpp.html#a409fc86d8cc52d1c09a0491ca7cc59d9',1,'advassert.cpp']]]
 ];
