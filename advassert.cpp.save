@@ -9,10 +9,15 @@
 //! @brief Maximum variable's name's length (including '\0').
 const unsigned int MAX_VAR_NAME_LEN = 101;
 
+//! @brief Maximum type's name's length (including '\0').
 const unsigned int MAX_TYPE_NAME_LEN = 51;
 
-const char* adv_assert_types[] = {"int", "char", "double", "float", "long int"};
-const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     };
+//! @brief Maximum format's length (including '\0').
+const unsigned int MAX_FORMAT_LEN = MAX_TYPE_NAME_LEN + 10;
+
+enum       AdvAssertType         {INT=0, CHAR=1, DOUBLE=2, FLOAT=3, LONG_INT=4, POINTER=5};
+const char* adv_assert_types[] = {"int", "char", "double", "float", "long int", "void *" };
+const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     , "%p"     };
 
 //! @brief Number of supported types, aka len(adv_assert_types)
 const unsigned int N_SUPPORTED_TYPES = 5;
@@ -37,9 +42,9 @@ static int parse_vars(  const char* vars_as_string,
 int main() // временно для тестов
 {
     char x1 = 'F';
-    //double eji = 23.42;
+    double eji = 23.42;
 
-    ADV_ASSERT(x1 < 0, "Explanation", 1, (char) x1);
+    ADV_ASSERT(x1 < 0, "Explanation", 2, (char) x1, (  double)   eji );
 
     return 0;
 }
@@ -91,34 +96,33 @@ void advassert_(const char* condition,
     {
         for (unsigned int i = 0; i < nVars; ++i)
         {
-//            switch( parsed_types[i] )
-//            {
-//                case AdvAssertType::INT:
-//                    fprintf(stderr, "%s = %d\n", parsed_vars[i], va_arg(vars, int));
-//                    break;
-//                case AdvAssertType::CHAR:
-//                    fprintf(stderr, "%s = %c\n", parsed_vars[i], (char) va_arg(vars, int)); // 'char' is promoted to 'int' when passed through '...'
-//                    break;
-//                case AdvAssertType::DOUBLE:
-//                case AdvAssertType::FLOAT:      // 'float' is promoted to 'double' when passed through '...'
-//                    fprintf(stderr, "%s = %f\n", parsed_vars[i], va_arg(vars, double));
-//                    break;
-//                case AdvAssertType::LONG_INT:
-//                    fprintf(stderr, "%s = %li\n", parsed_vars[i], va_arg(vars, long int));
-//                    break;
-//                case AdvAssertType::POINTER:
-//                    fprintf(stderr, "%s = %p\n", parsed_vars[i], va_arg(vars, void*));
-//                    break;
-//                default:
-//                    printf("ADV_ASSERT: %s has unknown AdvAssertType. "
-//                    "Can't read arguments...\n",  parsed_vars[i]);
-//                    break;
-//            }
-
-            // ИСПРАВИТЬ МАГИЧЕСКУЮ КОНСТАНТУ!!!
-            char format[50] = "%s = ";
+            char format[MAX_FORMAT_LEN] = "%s = ";
             strcat(format, adv_assert_specf[ parsed_types[i] ]);
-            fprintf(stderr, format, parsed_vars[i], va_arg(vars, ) );
+
+            switch( (AdvAssertType) parsed_types[i] )
+            {
+                case AdvAssertType::INT:
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, int) );
+                    break;
+                case AdvAssertType::CHAR:
+                    fprintf(stderr, format, parsed_vars[i], (char) va_arg(vars, int)); // 'char' is promoted to 'int' when passed through '...'
+                    break;
+                case AdvAssertType::DOUBLE:
+                case AdvAssertType::FLOAT:      // 'float' is promoted to 'double' when passed through '...'
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, double));
+                    break;
+                case AdvAssertType::LONG_INT:
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, long int));
+                    break;
+                case AdvAssertType::POINTER:
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, void*));
+                    break;
+                default:
+                    printf("ADV_ASSERT: %s has unknown type. "
+                    "Can't read arguments...\n",  parsed_vars[i]);
+                    break;
+            }
+            printf("\n");
         }
     }
     else
@@ -143,13 +147,8 @@ static int parse_vars(  const char* vars_as_string,
     int ind_curr_parsed_vars = 0; // совпадает с количеством прочитанных на данный момент аргументов
     unsigned int name_letter_cnt = 0; // счетчик кол-ва букв в одном имени
 
-    // !!!ЧТОБЫ РАСПАРСИТЬ ТИП, ДОСТАТОЧНО ПРОЧИТАТЬ ПЕРВУЮ БУКВУ!!!
-    // А ЗАТЕМ СВИЧОМ ОТОБРАТЬ НУЖНЫЙ ADVASSERTTYPE
-    // И ПОМЕСТИТЬ В МАССИВ
-
     while (*p_curr_vars != '\0')
     {
-        //printf("!!! %c\n", *p_curr_vars);
         if ( *p_curr_vars == ',' || isspace(*p_curr_vars) )// если символ не принадлежит имени, т.е. пробел или запятая
         {
             if ( is_in_name )
@@ -162,7 +161,6 @@ static int parse_vars(  const char* vars_as_string,
                 name_letter_cnt = 0;
                 *p_curr_parsed_vars = '\0';
                 p_curr_parsed_vars = parsed_vars[++ind_curr_parsed_vars];
-                //printf("!!!  %d\n", ind_curr_parsed_vars);
             }
         }
         else if ( *p_curr_vars == '(' )
@@ -196,6 +194,9 @@ static int parse_vars(  const char* vars_as_string,
             //теперь в buf_type нормальное имя типа
             //ищем тип в массиве типов
             unsigned int type_ind;
+            
+            //ЧАСТНЫЙ СЛУЧАЙ
+            
             for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
             {
                 if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
