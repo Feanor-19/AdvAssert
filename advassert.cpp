@@ -3,10 +3,20 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #include "advassert.h"
 
 //! @brief Maximum variable's name's length (including '\0').
 const unsigned int MAX_VAR_NAME_LEN = 101;
+
+const unsigned int MAX_TYPE_NAME_LEN = 51;
+
+enum       AdvAssertType         {INT=0, CHAR=1, DOUBLE=2, FLOAT=3, LONG_INT=4};
+const char* adv_assert_types[] = {"int", "char", "double", "float", "long int"};
+const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     };
+
+//! @brief Number of supported types, aka len(adv_assert_types)
+const unsigned int N_SUPPORTED_TYPES = 5;
 
 /*!
     @details Parses string of variables (like "(int) i1, (double) d2, (char) c3")
@@ -23,14 +33,14 @@ const unsigned int MAX_VAR_NAME_LEN = 101;
 static int parse_vars(  const char* vars_as_string,
                         const unsigned int nVars,
                         char parsed_vars[][MAX_VAR_NAME_LEN],
-                        AdvAssertType parsed_types[]);
+                        unsigned int parsed_types[]);
 
 int main() // временно для тестов
 {
-    int x1 = 19;
+    char x1 = 'F';
     double eji = 23.42;
 
-    ADV_ASSERT(x1 < 0, "Explanation", 0, "");
+    ADV_ASSERT(x1 < 0, "Explanation", 2, (char) x1, (  double)   eji );
 
     return 0;
 }
@@ -71,7 +81,7 @@ void advassert_(const char* condition,
     va_start(vars, nVars);
 
     char (*parsed_vars)[MAX_VAR_NAME_LEN] = (char (*)[MAX_VAR_NAME_LEN]) calloc(nVars, sizeof(char [MAX_VAR_NAME_LEN]));
-    AdvAssertType *parsed_types = (AdvAssertType*) calloc(nVars, sizeof(AdvAssertType));
+    unsigned int *parsed_types = (unsigned int*) calloc(nVars, sizeof(AdvAssertType));
 
     int is_parse_fine = parse_vars(  vars_as_string,
                                     nVars,
@@ -82,29 +92,35 @@ void advassert_(const char* condition,
     {
         for (unsigned int i = 0; i < nVars; ++i)
         {
-            switch( parsed_types[i] )
+
+            // ИСПРАВИТЬ МАГИЧЕСКУЮ КОНСТАНТУ!!!
+            char format[50] = "%s = ";
+            strcat(format, adv_assert_specf[ parsed_types[i] ]);
+
+            switch( (AdvAssertType) parsed_types[i] )
             {
                 case AdvAssertType::INT:
-                    fprintf(stderr, "%s = %d\n", parsed_vars[i], va_arg(vars, int));
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, int) );
                     break;
                 case AdvAssertType::CHAR:
-                    fprintf(stderr, "%s = %c\n", parsed_vars[i], (char) va_arg(vars, int)); // 'char' is promoted to 'int' when passed through '...'
+                    fprintf(stderr, format, parsed_vars[i], (char) va_arg(vars, int)); // 'char' is promoted to 'int' when passed through '...'
                     break;
                 case AdvAssertType::DOUBLE:
                 case AdvAssertType::FLOAT:      // 'float' is promoted to 'double' when passed through '...'
-                    fprintf(stderr, "%s = %f\n", parsed_vars[i], va_arg(vars, double));
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, double));
                     break;
                 case AdvAssertType::LONG_INT:
-                    fprintf(stderr, "%s = %li\n", parsed_vars[i], va_arg(vars, long int));
+                    fprintf(stderr, format, parsed_vars[i], va_arg(vars, long int));
                     break;
-                case AdvAssertType::POINTER:
-                    fprintf(stderr, "%s = %p\n", parsed_vars[i], va_arg(vars, void*));
-                    break;
+                //case AdvAssertType::POINTER:
+                //    fprintf(stderr, format, parsed_vars[i], va_arg(vars, void*));
+                //    break;
                 default:
-                    printf("ADV_ASSERT: %s has unknown AdvAssertType. "
+                    printf("ADV_ASSERT: %s has unknown type. "
                     "Can't read arguments...\n",  parsed_vars[i]);
                     break;
             }
+            printf("\n");
         }
     }
     else
@@ -121,7 +137,7 @@ void advassert_(const char* condition,
 static int parse_vars(  const char* vars_as_string,
                         const unsigned int nVars,
                         char parsed_vars[][MAX_VAR_NAME_LEN],
-                        AdvAssertType parsed_types[])
+                        unsigned int parsed_types[])
 {
     const char* p_curr_vars = vars_as_string; // указатель на обрабатываемый в данный момент символ vars
     int is_in_name = 0;
@@ -154,40 +170,42 @@ static int parse_vars(  const char* vars_as_string,
         else if ( *p_curr_vars == '(' )
         {
             // начинается "(тип)", нужно все это обработать до выхода из данного блока
+            char buf_type[MAX_TYPE_NAME_LEN];
+            unsigned int ind_buf = 0;
 
             // пропускаем возможные пробелы между '(' и первой буквой
-
             p_curr_vars++;
             while( isspace( *(p_curr_vars) ) ) p_curr_vars++;
 
-            //printf("!!! %c\n", *p_curr_vars);
+            // теперь p_curr_vars указывает на первую букву типа
+            // тип может иметь пробелы; нужно читать вплоть до ')'
+            // а затем отрезать последние пробелы (если они есть)
 
-            switch(*(p_curr_vars)) // читаем первую букву и по ней определяем тип
+            // читаем все символы до закрывающей скобки
+            while ( *p_curr_vars != ')' )
             {
-                case 'i':
-                    *(parsed_types++) = AdvAssertType::INT;
-                    break;
-                case 'c':
-                    *(parsed_types++) = AdvAssertType::CHAR;
-                    break;
-                case 'd':
-                    *(parsed_types++) = AdvAssertType::DOUBLE;
-                    break;
-                case 'f':
-                    *(parsed_types++) = AdvAssertType::FLOAT;
-                    break;
-                case 'l':
-                    *(parsed_types++) = AdvAssertType::LONG_INT;
-                    break;
-                case 'p':
-                    *(parsed_types++) = AdvAssertType::POINTER;
-                    break;
-                default:
-                    return 0; // ОШИБКА ЧТЕНИЯ
+                //НУЖНА ПРОВЕРКА НА ВЛЕЗАНИЕ В БУФФЕР!
+
+                buf_type[ind_buf++] = *(p_curr_vars++);
             }
 
-            // пропускаем все символы до закрывающей скобки
-            while ( *p_curr_vars != ')' ) p_curr_vars++;
+            //ind_buf - индекс элемента за последним помещенным
+            buf_type[ind_buf] = '\0';
+
+            //чистка задних пробелов
+            while( buf_type[--ind_buf] == ' ') buf_type[ind_buf] = '\0';
+
+            //теперь в buf_type нормальное имя типа
+            //ищем тип в массиве типов
+            unsigned int type_ind;
+            for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
+            {
+                if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
+            }
+
+            // ДОБАВИТЬ ПРОВЕРКУ НА ОШИБКУ ПОИСКА ТИПА!!!
+
+            *(parsed_types++) = type_ind;
         }
         else
         {
