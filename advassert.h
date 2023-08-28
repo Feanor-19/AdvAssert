@@ -1,9 +1,6 @@
 #ifndef ADVASSERT_H
 #define ADVASEERT_H
 
-//! @brief Contains all supported variable types. It is located in header
-//! so that anyone can check which types are supported.
-
 #ifdef NDEBUG
 
 // if not debugging, ADV_ASSERT must be turned off
@@ -19,6 +16,20 @@ void advassert_(const char* condition,
                 unsigned int nVars,
                 ...);
 
+/*!
+    @brief Advanced version of standard assert, capable of printing variables' values and names.
+    @details If passed condition is true, nothing happens. Otherwise internal function advassert_()
+    is called, which prints passed variables' names and values and calls standard abort(). If NEDBUG
+    is defined, all asserts are turned off.
+    @param cond Condition to check.
+    @param expl Constant string message, explaining what this assert means.
+    @param nVars Number of variables being passed.
+    @param ... Variables, which names and values must be printed, written as follows: (type) var_name
+    @note USAGE EXAMPLE 1: ADV_ASSERT(i1 > 0, "i1 must be positive", 1, (int) i1); i1 has type int.
+    @note USAGE EXAMPLE 2: ADV_ASSERT(p != NULL, "null pointer p", 2, (int *) p, (int) some_int);
+    @note USAGE EXAMPLE 3: ADV_ASSERT(0, "Unreachable line", 0, ""); If you don't want to pass
+    any variables, pass 0 as number of variables and anything (for example empty string) instead of variables.
+*/
 #define ADV_ASSERT(cond, expl, nVars,...) ( (cond) ? ((void)0) : advassert_(#cond,          \
                                                                             (expl),         \
                                                                             __FILE__,       \

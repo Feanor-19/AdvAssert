@@ -15,6 +15,7 @@ const unsigned int MAX_TYPE_NAME_LEN = 51;
 //! @brief Maximum format's length (including '\0').
 const unsigned int MAX_FORMAT_LEN = MAX_TYPE_NAME_LEN + 10;
 
+//! @brief Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]!
 enum       AdvAssertType         {INT=0, CHAR=1, DOUBLE=2, FLOAT=3, LONG_INT=4, POINTER=5};
 const char* adv_assert_types[] = {"int", "char", "double", "float", "long int", "void *" };
 const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     , "%p"     };
@@ -44,7 +45,7 @@ int main() // временно для тестов
     char x1 = 'F';
     double eji = 23.42;
 
-    ADV_ASSERT(x1 < 0, "Explanation", 2, (char) x1, (  double)   eji );
+    ADV_ASSERT(x1 < 0, "Explanation", 3, (char) x1, ( double)   eji, ( double *) &eji );
 
     return 0;
 }
@@ -147,7 +148,7 @@ static int parse_vars(  const char* vars_as_string,
     int ind_curr_parsed_vars = 0; // совпадает с количеством прочитанных на данный момент аргументов
     unsigned int name_letter_cnt = 0; // счетчик кол-ва букв в одном имени
 
-    while (*p_curr_vars != '\0')
+    while (*p_curr_vars != '\0' && ind_curr_parsed_vars < nVars) // ind_curr_parsed_vars в т
     {
         if ( *p_curr_vars == ',' || isspace(*p_curr_vars) )// если символ не принадлежит имени, т.е. пробел или запятая
         {
@@ -180,9 +181,15 @@ static int parse_vars(  const char* vars_as_string,
             // читаем все символы до закрывающей скобки
             while ( *p_curr_vars != ')' )
             {
-                //НУЖНА ПРОВЕРКА НА ВЛЕЗАНИЕ В БУФФЕР!
-
                 buf_type[ind_buf++] = *(p_curr_vars++);
+
+                if (ind_buf == MAX_TYPE_NAME_LEN - 1)
+                {
+                    //если ind_buf индекс последнего доступного элемента,
+                    //то уже прочитать тип не выйдет, выдаем ошибку
+
+                    return 0;
+                }
             }
 
             //ind_buf - индекс элемента за последним помещенным
@@ -194,15 +201,23 @@ static int parse_vars(  const char* vars_as_string,
             //теперь в buf_type нормальное имя типа
             //ищем тип в массиве типов
             unsigned int type_ind;
-            
-            //ЧАСТНЫЙ СЛУЧАЙ
-            
-            for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
-            {
-                if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
-            }
 
-            // ДОБАВИТЬ ПРОВЕРКУ НА ОШИБКУ ПОИСКА ТИПА!!!
+            //ЧАСТНЫЙ СЛУЧАЙ: если последний непробельный символ это *, значит это указатель
+            if ( buf_type[ind_buf] == '*' ) type_ind = AdvAssertType::POINTER;
+            else
+            {
+                for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
+                {
+                    if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
+                }
+
+                if (type_ind == N_SUPPORTED_TYPES)
+                {
+                    //тип не был найден, кидаем ошибку
+
+                    return 0;
+                }
+            }
 
             *(parsed_types++) = type_ind;
         }

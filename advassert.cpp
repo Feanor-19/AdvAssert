@@ -15,12 +15,13 @@ const unsigned int MAX_TYPE_NAME_LEN = 51;
 //! @brief Maximum format's length (including '\0').
 const unsigned int MAX_FORMAT_LEN = MAX_TYPE_NAME_LEN + 10;
 
+//! @brief Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]!
 enum       AdvAssertType         {INT=0, CHAR=1, DOUBLE=2, FLOAT=3, LONG_INT=4, POINTER=5};
 const char* adv_assert_types[] = {"int", "char", "double", "float", "long int", "void *" };
 const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     , "%p"     };
 
 //! @brief Number of supported types, aka len(adv_assert_types)
-const unsigned int N_SUPPORTED_TYPES = 5;
+const unsigned int N_SUPPORTED_TYPES = sizeof(adv_assert_types)/sizeof(adv_assert_types[0]);
 
 /*!
     @details Parses string of variables (like "(int) i1, (double) d2, (char) c3")
@@ -32,7 +33,6 @@ const unsigned int N_SUPPORTED_TYPES = 5;
     @param [out] parsed_types Array of variables' types converted as
     {AdvAssertType::INT, AdvAssertType::FLOAT, AdvAssertType::CHAR}
     @return 1 (true) if no errors occurred, 0 (false) otherwise. If 0 is returned, contains of
-
 */
 static int parse_vars(  const char* vars_as_string,
                         const unsigned int nVars,
@@ -65,7 +65,7 @@ void advassert_(const char* condition,
                 const char* file,
                 const int line,
                 const char* vars_as_string,
-                unsigned int nVars,
+                const unsigned int nVars,
                 ...)
 {
     fprintf(stderr, "Advanced assertion failed!\nFailed condition: %s\n"
@@ -127,7 +127,8 @@ void advassert_(const char* condition,
     }
     else
     {
-        printf("Some error occurred during parsing variables of the assert.\n");
+        printf("Some error occurred during parsing variables of the assert. "
+        "Here are the passed variables: %s\n", vars_as_string);
     }
 
     free(parsed_vars);
@@ -147,8 +148,10 @@ static int parse_vars(  const char* vars_as_string,
     int ind_curr_parsed_vars = 0; // совпадает с количеством прочитанных на данный момент аргументов
     unsigned int name_letter_cnt = 0; // счетчик кол-ва букв в одном имени
 
-    while (*p_curr_vars != '\0')
+    while (*p_curr_vars != '\0' && ind_curr_parsed_vars < nVars)
     {
+        // пояснение к условию: ind_curr_parsed_vars в том числе содержит в себе кол-во прочитанных аргументов
+
         if ( *p_curr_vars == ',' || isspace(*p_curr_vars) )// если символ не принадлежит имени, т.е. пробел или запятая
         {
             if ( is_in_name )
@@ -180,9 +183,15 @@ static int parse_vars(  const char* vars_as_string,
             // читаем все символы до закрывающей скобки
             while ( *p_curr_vars != ')' )
             {
-                //НУЖНА ПРОВЕРКА НА ВЛЕЗАНИЕ В БУФФЕР!
-
                 buf_type[ind_buf++] = *(p_curr_vars++);
+
+                if (ind_buf == MAX_TYPE_NAME_LEN - 1)
+                {
+                    //если ind_buf индекс последнего доступного элемента,
+                    //то уже прочитать тип не выйдет, выдаем ошибку
+
+                    return 0;
+                }
             }
 
             //ind_buf - индекс элемента за последним помещенным
@@ -204,7 +213,12 @@ static int parse_vars(  const char* vars_as_string,
                     if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
                 }
 
-                // ДОБАВИТЬ ПРОВЕРКУ НА ОШИБКУ ПОИСКА ТИПА!!!
+                if (type_ind == N_SUPPORTED_TYPES)
+                {
+                    //тип не был найден, кидаем ошибку
+
+                    return 0;
+                }
             }
 
             *(parsed_types++) = type_ind;

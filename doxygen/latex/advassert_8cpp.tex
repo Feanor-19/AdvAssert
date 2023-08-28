@@ -1,0 +1,317 @@
+\doxysection{advassert.\+cpp File Reference}
+\hypertarget{advassert_8cpp}{}\label{advassert_8cpp}\index{advassert.cpp@{advassert.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \"{}advassert.\+h\"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{Adv\+Assert\+Type}} \{ \newline
+\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a}{INT}} =0
+, \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8}{CHAR}} =1
+, \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92}{DOUBLE}} =2
+, \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}} =3
+, \newline
+\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87}{LONG\+\_\+\+INT}} =4
+, \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512}{POINTER}} =5
+ \}
+\begin{DoxyCompactList}\small\item\em Contains all supported types. MUST BE IN SYNC WITH adv\+\_\+assert\+\_\+types\mbox{[}\mbox{]} and adv\+\_\+assert\+\_\+specf\mbox{[}\mbox{]}! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{advassert_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\item 
+void \mbox{\hyperlink{advassert_8cpp_a6227826c040a536c0a0f66ac4933828e}{advassert\+\_\+}} (const char \texorpdfstring{$\ast$}{*}condition, const char \texorpdfstring{$\ast$}{*}explanation, const char \texorpdfstring{$\ast$}{*}file, const int line, const char \texorpdfstring{$\ast$}{*}vars\+\_\+as\+\_\+string, const unsigned int n\+Vars,...)
+\begin{DoxyCompactList}\small\item\em Internal function implementing advanced version of standard assert(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\+\_\+\+VAR\+\_\+\+NAME\+\_\+\+LEN}} = 101
+\begin{DoxyCompactList}\small\item\em Maximum variable\textquotesingle{}s name\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). \end{DoxyCompactList}\item 
+const unsigned int \mbox{\hyperlink{advassert_8cpp_aab66dd88b7476f29d0b123917a2f99b8}{MAX\+\_\+\+TYPE\+\_\+\+NAME\+\_\+\+LEN}} = 51
+\begin{DoxyCompactList}\small\item\em Maximum type\textquotesingle{}s name\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). \end{DoxyCompactList}\item 
+const unsigned int \mbox{\hyperlink{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45}{MAX\+\_\+\+FORMAT\+\_\+\+LEN}} = \mbox{\hyperlink{advassert_8cpp_aab66dd88b7476f29d0b123917a2f99b8}{MAX\+\_\+\+TYPE\+\_\+\+NAME\+\_\+\+LEN}} + 10
+\begin{DoxyCompactList}\small\item\em Maximum format\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{advassert_8cpp_ae674e284062221038daa4fa473d395b8}{adv\+\_\+assert\+\_\+types}} \mbox{[}$\,$\mbox{]} = \{\"{}int\"{}, \"{}char\"{}, \"{}double\"{}, \"{}float\"{}, \"{}long int\"{}, \"{}void \texorpdfstring{$\ast$}{*}\"{} \}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{advassert_8cpp_aa88ddbd1f2efc83232c9f5013f30b67a}{adv\+\_\+assert\+\_\+specf}} \mbox{[}$\,$\mbox{]} = \{\"{}\%d\"{} , \"{}\%c\"{} , \"{}\%f\"{} , \"{}\%f\"{} , \"{}\%ld\"{} , \"{}\%p\"{} \}
+\item 
+const unsigned int \mbox{\hyperlink{advassert_8cpp_a952e27e18463eb75b2aa9758a2642d76}{N\+\_\+\+SUPPORTED\+\_\+\+TYPES}} = sizeof(\mbox{\hyperlink{advassert_8cpp_ae674e284062221038daa4fa473d395b8}{adv\+\_\+assert\+\_\+types}})/sizeof(\mbox{\hyperlink{advassert_8cpp_ae674e284062221038daa4fa473d395b8}{adv\+\_\+assert\+\_\+types}}\mbox{[}0\mbox{]})
+\begin{DoxyCompactList}\small\item\em Number of supported types, aka len(adv\+\_\+assert\+\_\+types) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a} 
+\index{advassert.cpp@{advassert.cpp}!AdvAssertType@{AdvAssertType}}
+\index{AdvAssertType@{AdvAssertType}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{AdvAssertType}{AdvAssertType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{Adv\+Assert\+Type}}}
+
+
+
+Contains all supported types. MUST BE IN SYNC WITH adv\+\_\+assert\+\_\+types\mbox{[}\mbox{]} and adv\+\_\+assert\+\_\+specf\mbox{[}\mbox{]}! 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT@{INT}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!INT@{INT}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a} 
+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHAR@{CHAR}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!CHAR@{CHAR}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8} 
+CHAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE@{DOUBLE}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!DOUBLE@{DOUBLE}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92} 
+DOUBLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT@{FLOAT}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!FLOAT@{FLOAT}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c} 
+FLOAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LONG\_INT@{LONG\_INT}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!LONG\_INT@{LONG\_INT}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87} 
+LONG\+\_\+\+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POINTER@{POINTER}!advassert.cpp@{advassert.cpp}}\index{advassert.cpp@{advassert.cpp}!POINTER@{POINTER}}}\Hypertarget{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512}\label{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512} 
+POINTER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a}{INT}}=0,\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8}{CHAR}}=1,\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92}{DOUBLE}}=2,\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}=3,\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87}{LONG\_INT}}=4,\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512}{POINTER}}=5\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{advassert_8cpp_a6227826c040a536c0a0f66ac4933828e}\label{advassert_8cpp_a6227826c040a536c0a0f66ac4933828e} 
+\index{advassert.cpp@{advassert.cpp}!advassert\_@{advassert\_}}
+\index{advassert\_@{advassert\_}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{advassert\_()}{advassert\_()}}
+{\footnotesize\ttfamily void advassert\+\_\+ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{condition,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{explanation,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{file,  }\item[{const int}]{line,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{vars\+\_\+as\+\_\+string,  }\item[{const unsigned int}]{n\+Vars,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Internal function implementing advanced version of standard assert(). 
+
+MUSTN\textquotesingle{}T be used on its own, only as a part of the macro \doxylink{advassert_8h_ad43146e7b63c30aad9f8a26e62b2abb6}{ADV\+\_\+\+ASSERT()}. Please, read docs concerning this macro to learn how to properly use this macro. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em condition} & Assertion condition converted to string by macro. \\
+\hline
+\mbox{\texttt{ in}}  & {\em explanation} & Written by user explanation of the assertion condition as a constant string. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file} & File where assertion failed, passed in by macro {\bfseries{FILE}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em line} & Line where assertion failed, passed in by macro {\bfseries{LINE}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em vars\+\_\+as\+\_\+string} & Variables to print passed by user, converted by macro to string. \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+Vars} & Number of variables to print passed by user. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Advanced\ assertion\ failed!\(\backslash\)nFailed\ condition:\ \%s\(\backslash\)n"{}}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Explanation:\ \%s\(\backslash\)nFile:\ \%s\(\backslash\)nLine:\ \%d\(\backslash\)n"{}},\ condition,\ explanation,\ file,\ line);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (nVars\ ==\ 0)}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ variables\ to\ print\ passed.\(\backslash\)n"{}});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ abort();}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ nVars\ !=\ 0}}
+\DoxyCodeLine{00082\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Passed\ variables:\(\backslash\)n"{}});}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ va\_list\ vars;}
+\DoxyCodeLine{00085\ \ \ \ \ va\_start(vars,\ nVars);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ char\ (*parsed\_vars)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]\ =\ (char\ (*)[\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}])\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ [\mbox{\hyperlink{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}{MAX\_VAR\_NAME\_LEN}}]));}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *parsed\_types\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*)\ calloc(nVars,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{AdvAssertType}}));}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ is\_parse\_fine\ =\ parse\_vars(\ \ vars\_as\_string,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nVars,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_vars,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsed\_types);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_parse\_fine)}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nVars;\ ++i)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ format[\mbox{\hyperlink{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45}{MAX\_FORMAT\_LEN}}]\ =\ \textcolor{stringliteral}{"{}\%s\ =\ "{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ strcat(format,\ \mbox{\hyperlink{advassert_8cpp_aa88ddbd1f2efc83232c9f5013f30b67a}{adv\_assert\_specf}}[\ parsed\_types[i]\ ]);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\ (\mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26a}{AdvAssertType}})\ parsed\_types[i]\ )}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aafd5a5f51ce25953f3db2c7e93eb7864a}{AdvAssertType::INT}}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{int})\ );}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa4618cf21306b3c647741afa7ebefcab8}{AdvAssertType::CHAR}}:}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ (\textcolor{keywordtype}{char})\ va\_arg(vars,\ \textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ 'char'\ is\ promoted\ to\ 'int'\ when\ passed\ through\ '...'}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa33465d1d419b1074fb259ef444609e92}{AdvAssertType::DOUBLE}}:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa9cf4a0866224b0bb4a7a895da27c9c4c}{AdvAssertType::FLOAT}}:\ \ \ \ \ \ \textcolor{comment}{//\ 'float'\ is\ promoted\ to\ 'double'\ when\ passed\ through\ '...'}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{double}));}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aa95d35d28f182e281c3ebca74641fdc87}{AdvAssertType::LONG\_INT}}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{advassert_8cpp_a6e2de44e7ae440cbef1899c8b52df26aaad7dce162b42b3d0968ffa57fad43512}{AdvAssertType::POINTER}}:}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ format,\ parsed\_vars[i],\ va\_arg(vars,\ \textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ADV\_ASSERT:\ \%s\ has\ unknown\ type.\ "{}}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Can't\ read\ arguments...\(\backslash\)n"{}},\ \ parsed\_vars[i]);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Some\ error\ occurred\ during\ parsing\ variables\ of\ the\ assert.\ "{}}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Here\ are\ the\ passed\ variables:\ \%s\(\backslash\)n"{}},\ vars\_as\_string);}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ free(parsed\_vars);}
+\DoxyCodeLine{00135\ \ \ \ \ free(parsed\_types);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ va\_end(vars);}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{advassert_8cpp_source_l00021}{adv\+\_\+assert\+\_\+specf}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{CHAR}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{DOUBLE}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{FLOAT}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00019}{LONG\+\_\+\+INT}}, \mbox{\hyperlink{advassert_8cpp_source_l00016}{MAX\+\_\+\+FORMAT\+\_\+\+LEN}}, \mbox{\hyperlink{advassert_8cpp_source_l00010}{MAX\+\_\+\+VAR\+\_\+\+NAME\+\_\+\+LEN}}, and \mbox{\hyperlink{advassert_8cpp_source_l00019}{POINTER}}.
+
+\Hypertarget{advassert_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{advassert_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{advassert.cpp@{advassert.cpp}!main@{main}}
+\index{main@{main}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{char}\ x1\ =\ \textcolor{charliteral}{'F'};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ eji\ =\ 23.42;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{advassert_8h_ad43146e7b63c30aad9f8a26e62b2abb6}{ADV\_ASSERT}}(x1\ <\ 0,\ \textcolor{stringliteral}{"{}Explanation"{}},\ 3,\ (\textcolor{keywordtype}{char})\ x1,\ (\ \textcolor{keywordtype}{double})\ \ \ eji,\ (\ \textcolor{keywordtype}{double}\ *)\ \&eji\ );}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{advassert_8h_source_l00033}{ADV\+\_\+\+ASSERT}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{advassert_8cpp_aa88ddbd1f2efc83232c9f5013f30b67a}\label{advassert_8cpp_aa88ddbd1f2efc83232c9f5013f30b67a} 
+\index{advassert.cpp@{advassert.cpp}!adv\_assert\_specf@{adv\_assert\_specf}}
+\index{adv\_assert\_specf@{adv\_assert\_specf}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{adv\_assert\_specf}{adv\_assert\_specf}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} adv\+\_\+assert\+\_\+specf\mbox{[}$\,$\mbox{]} = \{\"{}\%d\"{} , \"{}\%c\"{} , \"{}\%f\"{} , \"{}\%f\"{} , \"{}\%ld\"{} , \"{}\%p\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{advassert_8cpp_source_l00063}{advassert\+\_\+()}}.
+
+\Hypertarget{advassert_8cpp_ae674e284062221038daa4fa473d395b8}\label{advassert_8cpp_ae674e284062221038daa4fa473d395b8} 
+\index{advassert.cpp@{advassert.cpp}!adv\_assert\_types@{adv\_assert\_types}}
+\index{adv\_assert\_types@{adv\_assert\_types}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{adv\_assert\_types}{adv\_assert\_types}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} adv\+\_\+assert\+\_\+types\mbox{[}$\,$\mbox{]} = \{\"{}int\"{}, \"{}char\"{}, \"{}double\"{}, \"{}float\"{}, \"{}long int\"{}, \"{}void \texorpdfstring{$\ast$}{*}\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+\Hypertarget{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45}\label{advassert_8cpp_ac2ceb6ff7ba707c432e19b2698ce4d45} 
+\index{advassert.cpp@{advassert.cpp}!MAX\_FORMAT\_LEN@{MAX\_FORMAT\_LEN}}
+\index{MAX\_FORMAT\_LEN@{MAX\_FORMAT\_LEN}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_FORMAT\_LEN}{MAX\_FORMAT\_LEN}}
+{\footnotesize\ttfamily const unsigned int MAX\+\_\+\+FORMAT\+\_\+\+LEN = \mbox{\hyperlink{advassert_8cpp_aab66dd88b7476f29d0b123917a2f99b8}{MAX\+\_\+\+TYPE\+\_\+\+NAME\+\_\+\+LEN}} + 10}
+
+
+
+Maximum format\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). 
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{advassert_8cpp_source_l00063}{advassert\+\_\+()}}.
+
+\Hypertarget{advassert_8cpp_aab66dd88b7476f29d0b123917a2f99b8}\label{advassert_8cpp_aab66dd88b7476f29d0b123917a2f99b8} 
+\index{advassert.cpp@{advassert.cpp}!MAX\_TYPE\_NAME\_LEN@{MAX\_TYPE\_NAME\_LEN}}
+\index{MAX\_TYPE\_NAME\_LEN@{MAX\_TYPE\_NAME\_LEN}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_TYPE\_NAME\_LEN}{MAX\_TYPE\_NAME\_LEN}}
+{\footnotesize\ttfamily const unsigned int MAX\+\_\+\+TYPE\+\_\+\+NAME\+\_\+\+LEN = 51}
+
+
+
+Maximum type\textquotesingle{}s name\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). 
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+\Hypertarget{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870}\label{advassert_8cpp_af12b2e9dfe263fd7557b96d7873ea870} 
+\index{advassert.cpp@{advassert.cpp}!MAX\_VAR\_NAME\_LEN@{MAX\_VAR\_NAME\_LEN}}
+\index{MAX\_VAR\_NAME\_LEN@{MAX\_VAR\_NAME\_LEN}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_VAR\_NAME\_LEN}{MAX\_VAR\_NAME\_LEN}}
+{\footnotesize\ttfamily const unsigned int MAX\+\_\+\+VAR\+\_\+\+NAME\+\_\+\+LEN = 101}
+
+
+
+Maximum variable\textquotesingle{}s name\textquotesingle{}s length (including \textquotesingle{}\textbackslash{}0\textquotesingle{}). 
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{advassert_8cpp_source_l00063}{advassert\+\_\+()}}.
+
+\Hypertarget{advassert_8cpp_a952e27e18463eb75b2aa9758a2642d76}\label{advassert_8cpp_a952e27e18463eb75b2aa9758a2642d76} 
+\index{advassert.cpp@{advassert.cpp}!N\_SUPPORTED\_TYPES@{N\_SUPPORTED\_TYPES}}
+\index{N\_SUPPORTED\_TYPES@{N\_SUPPORTED\_TYPES}!advassert.cpp@{advassert.cpp}}
+\doxysubsubsection{\texorpdfstring{N\_SUPPORTED\_TYPES}{N\_SUPPORTED\_TYPES}}
+{\footnotesize\ttfamily const unsigned int N\+\_\+\+SUPPORTED\+\_\+\+TYPES = sizeof(\mbox{\hyperlink{advassert_8cpp_ae674e284062221038daa4fa473d395b8}{adv\+\_\+assert\+\_\+types}})/sizeof(\mbox{\hyperlink{advassert_8cpp_ae674e284062221038daa4fa473d395b8}{adv\+\_\+assert\+\_\+types}}\mbox{[}0\mbox{]})}
+
+
+
+Number of supported types, aka len(adv\+\_\+assert\+\_\+types) 
+
+
+
+Definition at line \mbox{\hyperlink{advassert_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{advassert_8cpp_source}{advassert.\+cpp}}.
+
