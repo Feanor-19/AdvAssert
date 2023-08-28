@@ -1,6 +1,9 @@
 #ifndef ADVASSERT_H
 #define ADVASEERT_H
 
+//const char* adv_assert_types[] = {"int", "char", "double", "float", "long int", "void *" };
+//const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     , "%p"     };
+
 #ifdef NDEBUG
 
 // if not debugging, ADV_ASSERT must be turned off

@@ -6,6 +6,33 @@
 #include <string.h>
 #include "advassert.h"
 
+struct AdvAssertType
+{
+    const char* type;
+    const char* specf;
+};
+
+//! @brief Represents any pointer, which can be used in printf with spec "%p".
+const char* AdvAssertPointer = "void *";
+
+//! @brief Contains all supported types.
+const AdvAssertType adv_assert_types[] = {
+                                            {"int",             "%d" },
+                                            {"char",            "%c" },
+                                            {"double",          "%f" },
+                                            {"float",           "%f" },
+                                            {"long int",        "%ld"},
+                                            {AdvAssertPointer,  "%p" }
+                                         };
+enum Type {
+    INT=0,
+    CHAR=1,
+    DOUBLE=2,
+    FLOAT=3,
+    LONG_INT=4,
+    POINTER=5,
+};
+
 //! @brief Maximum variable's name's length (including '\0').
 const unsigned int MAX_VAR_NAME_LEN = 101;
 
@@ -14,11 +41,6 @@ const unsigned int MAX_TYPE_NAME_LEN = 51;
 
 //! @brief Maximum format's length (including '\0').
 const unsigned int MAX_FORMAT_LEN = MAX_TYPE_NAME_LEN + 10;
-
-//! @brief Contains all supported types. MUST BE IN SYNC WITH adv_assert_types[] and adv_assert_specf[]!
-enum       AdvAssertType         {INT=0, CHAR=1, DOUBLE=2, FLOAT=3, LONG_INT=4, POINTER=5};
-const char* adv_assert_types[] = {"int", "char", "double", "float", "long int", "void *" };
-const char* adv_assert_specf[] = {"%d" , "%c"  , "%f"    , "%f"   , "%ld"     , "%p"     };
 
 //! @brief Number of supported types, aka len(adv_assert_types)
 const unsigned int N_SUPPORTED_TYPES = sizeof(adv_assert_types)/sizeof(adv_assert_types[0]);
@@ -97,24 +119,24 @@ void advassert_(const char* condition,
         for (unsigned int i = 0; i < nVars; ++i)
         {
             char format[MAX_FORMAT_LEN] = "%s = ";
-            strcat(format, adv_assert_specf[ parsed_types[i] ]);
+            strcat(format, adv_assert_types[ parsed_types[i] ].specf);
 
-            switch( (AdvAssertType) parsed_types[i] )
+            switch( (Type) parsed_types[i] )
             {
-                case AdvAssertType::INT:
+                case Type::INT:
                     fprintf(stderr, format, parsed_vars[i], va_arg(vars, int) );
                     break;
-                case AdvAssertType::CHAR:
+                case Type::CHAR:
                     fprintf(stderr, format, parsed_vars[i], (char) va_arg(vars, int)); // 'char' is promoted to 'int' when passed through '...'
                     break;
-                case AdvAssertType::DOUBLE:
-                case AdvAssertType::FLOAT:      // 'float' is promoted to 'double' when passed through '...'
+                case Type::DOUBLE:
+                case Type::FLOAT:      // 'float' is promoted to 'double' when passed through '...'
                     fprintf(stderr, format, parsed_vars[i], va_arg(vars, double));
                     break;
-                case AdvAssertType::LONG_INT:
+                case Type::LONG_INT:
                     fprintf(stderr, format, parsed_vars[i], va_arg(vars, long int));
                     break;
-                case AdvAssertType::POINTER:
+                case Type::POINTER:
                     fprintf(stderr, format, parsed_vars[i], va_arg(vars, void*));
                     break;
                 default:
@@ -145,7 +167,7 @@ static int parse_vars(  const char* vars_as_string,
     const char* p_curr_vars = vars_as_string; // указатель на обрабатываемый в данный момент символ vars
     int is_in_name = 0;
     char *p_curr_parsed_vars = parsed_vars[0];
-    int ind_curr_parsed_vars = 0; // совпадает с количеством прочитанных на данный момент аргументов
+    unsigned int ind_curr_parsed_vars = 0; // совпадает с количеством прочитанных на данный момент аргументов
     unsigned int name_letter_cnt = 0; // счетчик кол-ва букв в одном имени
 
     while (*p_curr_vars != '\0' && ind_curr_parsed_vars < nVars)
@@ -205,20 +227,19 @@ static int parse_vars(  const char* vars_as_string,
             unsigned int type_ind;
 
             //ЧАСТНЫЙ СЛУЧАЙ: если последний непробельный символ это *, значит это указатель
-            if ( buf_type[ind_buf] == '*' ) type_ind = AdvAssertType::POINTER;
-            else
+            if ( buf_type[ind_buf] == '*' ) strcpy(buf_type, AdvAssertPointer);
+
+            //ОБЩИЙ СЛУЧАЙ
+            for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
             {
-                for (type_ind = 0; type_ind < N_SUPPORTED_TYPES; ++type_ind)
-                {
-                    if (strcmp(buf_type, adv_assert_types[type_ind]) == 0) break;
-                }
+                if (strcmp(buf_type, adv_assert_types[type_ind].type) == 0) break;
+            }
 
-                if (type_ind == N_SUPPORTED_TYPES)
-                {
-                    //тип не был найден, кидаем ошибку
+            if (type_ind == N_SUPPORTED_TYPES)
+            {
+                //тип не был найден, кидаем ошибку
 
-                    return 0;
-                }
+                return 0;
             }
 
             *(parsed_types++) = type_ind;
