@@ -1,5 +1,5 @@
 # AdvAssert
-Second educational project in MIPT. An attempt to implement advanced version of assert().
+Second educational project at MIPT. An attempt to implement advanced version of assert().
 
 ## Brief description
 Implements define ADV_ASSERT(), which can be used instead of standard assert(). 
